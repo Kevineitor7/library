@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Library</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
+    <link href="https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="header">A library to keep track of your books</div>
+  <div class="container">
+    <div class="books">
+        <div class="books-header">
+            <h2>Books</h2>
+        </div>
+        <div class="grid-container">
+    <!--    <div class="grid-item">
+                <span class="book-description">
+                    America in danger, the war against normal people by CJ Van Villet, 300 pages, currently reading.
+                </span>
+                <span class="book-options">
+                    <button id="toggle-button" class="read">read
+                        <span class='tooltip'>Toggle reading status</span>
+                    </button>
+                    <button id="remove-button">remove
+                        <span class='tooltip'>Double click to remove book</span>
+                    </button>
+                </span>
+            </div>  -->
+        </div>
+    </div>
+    <div class="form">
+        <div class="form-header">
+            <h2>Add new book</h2>
+        </div>
+        <div class="form-container">
+            <form id="form" action="" method="get">
+                <label for="title">Title:</label>
+                <input type="text" name="title" id="title" maxlength="65" required>
+                <label for="author">Author:</label>
+                <input type="text" name="author" id="author" maxlength="40" required>
+                <label for="pages">Pages:</label>
+                <input type="number" name="pages" id="pages" min='1' max="10000" required>
+                <div>
+                    <label for="read">Read:</label>
+                    <input type="radio" name="read" id="read" value="read" checked required>
+                </div>
+                <div>
+                    <label for="reading">Currently Reading:</label>
+                    <input type="radio" name="read" id="reading" value="reading" required>                    
+                </div>
+                <div>
+                    <label for="not-read">Not read yet:</label>
+                    <input type="radio" name="read" id="not-read" value="not-read" required>
+                </div>
+                <input type="submit" name="submit" id="submit" value="Add book">
+            </form>
+        </div>
+    </div>
+  </div>
+</body>
+</html>

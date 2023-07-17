@@ -1,0 +1,267 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    height: 100vh;
+    background-image: url('https://cdn.openart.ai/stable_diffusion/35ed1e80742b6329d45941bbcbbcfa2de5162b5f_2000x2000.webp');
+    background-repeat: no-repeat;
+    background-size: cover;
+    font-family: 'Indie Flower', cursive;
+}
+
+.header {
+    height: 10%;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.5rem;
+}
+
+.container {
+    display: flex;
+    gap: 160px;
+    justify-content: space-evenly;
+    align-items: center;
+    height: 90%;
+}
+
+.books {
+    width: 55%;
+    height: 700px;
+    background-color: rgb(175, 72, 32);
+    display: flex;
+    flex-direction: column;
+    color: white;
+}
+
+.form {
+    width: 20%;
+    height: 500px;
+    color: white;
+}
+
+.books, .form {
+    background-color: rgb(175, 72, 32, 0.8);
+    border: 2px dotted white;
+    box-shadow: 0px 0px 10px 4px rgb(114, 114, 114);
+}
+
+.books-header {
+    height: 10%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.4rem;
+}
+
+.grid-container {
+    height: 90%;
+    padding: 32px;
+    display: grid;
+    justify-items: center;
+    grid-template-rows: repeat(auto-fill, minmax(50px, auto));
+    grid-auto-rows: 50px;
+    gap:20px;
+    overflow-y: auto;
+}
+
+.grid-item {
+    background: #FFF6F4;
+    border-radius: 4px;
+    color: black;
+    padding: 20px 6px;
+    display: flex;
+    align-items: center;
+    width: 97%;
+    display: flex;
+    justify-content: space-around;
+}
+
+.book-description {
+    width: 80%;
+    font-size: 0.98rem;
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+.book-options {
+    width: 22%;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+#toggle-button, #remove-button {
+    padding: 7px;
+    width: 45%;
+    border: none;
+    border-radius: 12px;
+    position: relative;
+}
+
+.tooltip {
+    visibility: hidden;
+    font-size: 0.8rem;
+    width: 100px;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+    position: absolute;
+    z-index: 1;
+    bottom: 110%;
+    right: -5%;
+    opacity: 0;
+    transition: opacity 0.4s 1s;
+}
+
+#toggle-button:hover .tooltip {
+    visibility: visible;
+    opacity: 1
+}
+
+#remove-button:hover .tooltip {
+    visibility: visible;
+    opacity: 1
+}
+
+.read {
+    background-color: rgb(34, 34, 248);
+    color: white;
+}
+
+#remove-button {
+    background-color: rgb(37, 0, 0);
+    color: white;
+}
+
+.form-header {
+    height: 10%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.1rem;
+}
+
+.form-container {
+    height: 90%;
+    padding: 4px;
+}
+
+.form-container form {
+    padding: 16px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+input:not(#submit) {
+    margin: 2px 0 12px 0;
+    display: block;
+    width: 100%;
+    border-radius: 8px;
+    padding: 2px;
+    border: none;
+}
+
+input:not(#submit, #read, #reading, #not-read):focus {
+    box-shadow: 0px 0px 8px 8px rgb(196, 189, 189);
+}
+
+form div {
+    display: flex;
+    flex-direction: column;
+}
+
+label[for='title'], label[for='author'], label[for='pages'] {
+    font-size: 1.1rem;
+    font-weight: bold;
+} 
+
+label[for='read'], label[for='reading'], label[for='not-read'] {
+    text-align: center;
+    font-weight: bold;
+}
+
+#read, #reading, #not-read {
+    height: 1rem;
+    margin-bottom: 222px;
+}
+
+#submit {
+    margin-top: 0px;
+    color: white;
+    font-weight: bold;
+    width: 50%;
+    padding: 8px;
+    border-radius: 12px;
+    border: none;
+    background-color: rgb(3, 85, 3);
+    align-self: center;
+    font-size: 1rem;
+}
+
+button:active, #submit:active {
+    transform: scale(0.95)
+}
+
+@media screen and (max-width: 1200px) {
+    
+    body {
+        height: auto;
+    }
+
+    .header {
+        margin-top: 20px;
+    }
+
+    .container {
+        flex-direction: column;
+        justify-content: center;
+        gap: 70px;
+    }
+
+    .book-options {
+        width: 30%;
+    }
+
+    #toggle-button, #remove-button {
+        font-size: 0.8rem;
+    }
+
+    .books {
+        width: 80%;
+        margin-top: 60px;
+    }
+
+    .form {
+        width: 50%;
+    }
+}
+
+@media screen and (max-width: 700px) {
+
+    .grid-container {
+        gap: 50px;
+    }
+    
+    .grid-item {
+        flex-direction: column;
+        gap: 8px;
+        padding: 40px 6px;
+    }
+
+    #toggle-button, #remove-button {
+        width: 80%;
+        font-size: 0.7rem;
+    }
+
+    .book-description {
+        text-align: center;
+    }
+}
