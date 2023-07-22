@@ -10,12 +10,14 @@ let gridContainer = document.querySelector('.grid-container')
 
 let library = []
 
-function Book(title, author, pages, read) {
+class Book {
+    constructor(title, author, pages, read) {
     this.title = title
     this.author = author
     this.pages = pages
     this.read = read
-    this.info = function() {
+    }
+    info() {
         if (this.read == 'yes') {
             return (this.title + ' by ' + this.author + ' has ' + this.pages + ' pages, already read')
         } else if (this.read == 'now') {
