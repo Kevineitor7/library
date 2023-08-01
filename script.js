@@ -52,9 +52,6 @@ function addBookToLibrary(event) {
         
 }
 
-
-
-
 function displayBook(item) {
         
         let gridItem = document.createElement('div')
