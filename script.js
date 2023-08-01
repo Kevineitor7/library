@@ -36,27 +36,23 @@ function addBookToLibrary(event) {
     } else if (read.checked) {
         let book = new Book(title.value, author.value, pages.value, 'yes')
         library.push(book)
-        createBook()
+        displayBook(book)
         form.reset()
     } else if (reading.checked) {
         let book = new Book(title.value, author.value, pages.value, 'now')
         library.push(book)
-        createBook()
+        displayBook(book)
         form.reset()
     } else if (notRead.checked) {
         let book = new Book(title.value, author.value, pages.value, 'no')
         library.push(book)
-        createBook()
+        displayBook(book)
         form.reset()
     } 
         
 }
 
-function createBook() {
-    for (let i = library.length - 1; i < library.length; i++) {
-        displayBook(library[i])
-    }    
-}
+
 
 
 function displayBook(item) {
