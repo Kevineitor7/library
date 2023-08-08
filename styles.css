@@ -265,4 +265,16 @@ button:active, #submit:active {
         text-align: center;
         font-size: 0.85rem;
     }
+
+}
+
+form span {
+    margin-left: 10px;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 0.9rem;
+    font-style: italic;
+}
+
+.label{
+    display: inline;
 }

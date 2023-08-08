@@ -7,6 +7,10 @@ let read = document.getElementById('read')
 let reading = document.getElementById('reading')
 let notRead = document.getElementById('not-read')
 let gridContainer = document.querySelector('.grid-container')
+let titleError = document.querySelector('.title-error')
+let authorError = document.querySelector('.author-error')
+let pagesError = document.querySelector('.pages-error')
+
 
 let library = []
 
@@ -32,18 +36,22 @@ function addBookToLibrary(event) {
     event.preventDefault()
 
     if (title.value == '' || author.value == '' || pages.value == '') {
-        return 
+        checkValidity() 
+        return
     } else if (read.checked) {
+        checkValidity() 
         let book = new Book(title.value, author.value, pages.value, 'yes')
         library.push(book)
         displayBook(book)
         form.reset()
     } else if (reading.checked) {
+        checkValidity() 
         let book = new Book(title.value, author.value, pages.value, 'now')
         library.push(book)
         displayBook(book)
         form.reset()
     } else if (notRead.checked) {
+        checkValidity() 
         let book = new Book(title.value, author.value, pages.value, 'no')
         library.push(book)
         displayBook(book)
@@ -121,3 +129,29 @@ function displayBook(item) {
 formButton.addEventListener('click', addBookToLibrary)
 
 
+function checkValidity() {
+
+    if (title.validity.valueMissing) {
+        titleError.textContent = '(Insert the book title)'
+        title.style.outline = '2px dashed yellow'
+    } else if (title.validity.valid) {
+        titleError.textContent = ''
+        title.style.outline = 'none'
+    }
+
+    if (author.validity.valueMissing) {
+        authorError.textContent = '(Insert the book author)'
+        author.style.outline = '2px dashed yellow'
+    } else if (author.validity.valid) {
+        authorError.textContent = ''
+        author.style.outline = 'none'
+    }
+
+    if (pages.validity.valueMissing) {
+        pagesError.textContent = '(Insert the book pages)'
+        pages.style.outline = '2px dashed yellow'
+    } else if (pages.validity.valid) {
+        pagesError.textContent = ''
+        pages.style.outline = 'none'
+    }
+}
